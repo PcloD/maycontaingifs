@@ -1,7 +1,14 @@
 default:
-	@tmux send-keys -t right 'make build' C-m
+	@tmux send-keys -t right 'make show' C-m
 
 build:
 	@go build gifs.go
 	@./gifs
+
+ifeq ($(shell uname -s), Darwin)
+show: build
+	@qlmanage -p out/latest.gif
+else
+show: build
 	@eog 2>/dev/null out/latest.gif
+endif
