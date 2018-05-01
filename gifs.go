@@ -5,7 +5,8 @@ import (
 )
 
 func main() {
-	may.May07()
+	may.May08()
+	// all()
 }
 
 func all() {
@@ -16,4 +17,5 @@ func all() {
 	may.May05()
 	may.May06()
 	may.May07()
+	may.May08()
 }
