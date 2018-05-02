@@ -7,7 +7,8 @@ build:
 
 ifeq ($(shell uname -s), Darwin)
 show: build
-	@qlmanage -p out/latest.gif 2>/dev/null
+	# @qlmanage -p out/latest.gif 2>/dev/null
+	@open out/latest.gif
 else
 show: build
 	@eog 2>/dev/null out/latest.gif
