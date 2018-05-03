@@ -5,19 +5,5 @@ import (
 )
 
 func main() {
-	may.May11()
-	// all()
-}
-
-func all() {
-	may.May01()
-	may.May02()
-	may.May03()
-	may.May04()
-	may.May05()
-	may.May06()
-	may.May07()
-	may.May08()
-	may.May09()
-	may.May11()
+	may.May12()
 }

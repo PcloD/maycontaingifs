@@ -67,7 +67,7 @@ func May11() {
 	firstFrame := true
 	animation.Render(func(surface *bitlibgo.BitSurface, percent float64) {
 		fmt.Printf("\r%f", percent)
-		n := bitmath.SinRange(percent*math.Pi*2.0, 0.1, 1.0)
+		n := bitmath.SinRange(percent*math.Pi*2.0, 0.03, 1.0)
 		if firstFrame {
 			surface.ClearRGB(0, 0, 0)
 			firstFrame = false
