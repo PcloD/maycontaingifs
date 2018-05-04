@@ -14,11 +14,11 @@ import (
 
 // May04 generates a gif
 func May04() {
-	width := 400.0
-	height := 400.0
+	width := 380.0
+	height := 380.0
 	center := geom.NewPoint(width/2, height/2)
 	filename := "out/may04.gif"
-	numPoints := 500
+	numPoints := 400
 	var points []*geom.Point
 	for i := 0; i < numPoints; i++ {
 		points = append(points, geom.NewPoint(random.FloatRange(0, width), random.FloatRange(0, height)))
@@ -26,7 +26,7 @@ func May04() {
 
 	animation := anim.NewAnimation(filename)
 	animation.SetSize(width, height)
-	animation.Frames = 180
+	animation.Frames = 120
 	animation.Render(func(surface *bitlibgo.BitSurface, percent float64) {
 		fmt.Printf("\r%f", percent)
 		surface.ClearRGB(1, 1, 1)
