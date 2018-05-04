@@ -1,17 +1,16 @@
-date := 04
+date := 13
 
 default:
 	tmux send-keys -t right 'make display' C-m
 
-out/may$(date).gif: gifs may/may$(date).go
-	go build gifs.go
-	./gifs $(date)
-
 ifeq ($(shell uname -s), Darwin)
-display: may/may$(date).go
-	# @qlmanage -p out/latest.gif 2>/dev/null
+display: out/may$(date).gif
 	open out/may$(date).gif
 else
-display: may/may$(date).go out/may$(date).gif
+display: out/may$(date).gif
 	eog 2>/dev/null out/may$(date).gif
 endif
+
+out/may$(date).gif: gifs.go may/may$(date).go
+	go build gifs.go
+	./gifs $(date)
