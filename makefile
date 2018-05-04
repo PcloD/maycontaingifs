@@ -1,4 +1,4 @@
-date := 04
+date := 12
 
 default:
 	tmux send-keys -t right 'make display' C-m
