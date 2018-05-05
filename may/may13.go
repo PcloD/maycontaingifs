@@ -3,7 +3,6 @@ package may
 import (
 	"fmt"
 	"math"
-	"os/exec"
 
 	"github.com/bit101/bitlibgo"
 	"github.com/bit101/bitlibgo/anim"
@@ -22,10 +21,12 @@ func May13() {
 	animation.Render(func(surface *bitlibgo.BitSurface, percent float64) {
 		fmt.Printf("\r%f", percent)
 		surface.Save()
+
 		angle := percent * math.Pi * 4
 		surface.Translate(width/2+math.Sin(angle)*100.0, height/2+math.Cos(angle)*100.0)
 		even := true
 		res := 5.0
+
 		for i := width * 2; i >= res; i -= res {
 			r := (width - i) * 0.012
 			surface.Save()
@@ -35,13 +36,11 @@ func May13() {
 			} else {
 				surface.SetSourceRGB(0, 0, 0)
 			}
+
 			surface.FillEllipse(-i, -i, i*2.5, i*1.5)
 			even = !even
 			surface.Restore()
 		}
 		surface.Restore()
 	})
-	cmd := exec.Command("cp", filename, "out/latest.gif")
-	cmd.Run()
-
 }
