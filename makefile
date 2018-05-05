@@ -1,15 +1,16 @@
-date := 07
+date := 14
 
 default:
-	tmux send-keys -t right 'make display' C-m
+	@tmux_send 'make display'
 
-ifeq ($(shell uname -s), Darwin)
 display: out/may$(date).gif
-	open out/may$(date).gif
-else
-display: out/may$(date).gif
-	eog out/may$(date).gif
-endif
+	@img_view $<
+
+launch:
+	@img_view out/may$(date).gif
+
+clean:
+	@tmux_send "# NO CLEAN!"
 
 out/may$(date).gif: gifs gifs.go may/may$(date).go
 	go build gifs.go
