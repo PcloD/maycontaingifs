@@ -3,7 +3,6 @@ package may
 import (
 	"fmt"
 	"math"
-	"os/exec"
 
 	"github.com/bit101/bitlibgo"
 	"github.com/bit101/bitlibgo/anim"
@@ -58,6 +57,4 @@ func May09() {
 		}
 		surface.Restore()
 	})
-	cmd := exec.Command("cp", filename, "out/latest.gif")
-	cmd.Run()
 }
