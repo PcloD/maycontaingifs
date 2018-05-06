@@ -13,12 +13,9 @@ import (
 func May12() {
 	width := 400.0
 	height := 400.0
-	filename := "out/may12.gif"
 
-	animation := anim.NewAnimation(filename)
-	animation.SetSize(width, height)
-	animation.Frames = 180
-	animation.Render(func(surface *blg.Surface, percent float64) {
+	animation := anim.NewAnimation(width, height, 180)
+	animation.Render("frames", "frame", func(surface *blg.Surface, percent float64) {
 		fmt.Printf("\r%f", percent)
 		surface.Save()
 		angle := percent * math.Pi * 4

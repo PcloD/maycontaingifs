@@ -12,7 +12,6 @@ import (
 func May16() {
 	width := 400.0
 	height := 400.0
-	filename := "out/may16.gif"
 
 	var circ func(*blg.Surface, float64, float64, float64, float64, float64, int)
 	circ = func(surface *blg.Surface, rotation, x, y, r, lw float64, d int) {
@@ -31,10 +30,8 @@ func May16() {
 		surface.Restore()
 	}
 
-	animation := anim.NewAnimation(filename)
-	animation.SetSize(width, height)
-	animation.Frames = 180
-	animation.Render(func(surface *blg.Surface, percent float64) {
+	animation := anim.NewAnimation(width, height, 180)
+	animation.Render("frames", "frame", func(surface *blg.Surface, percent float64) {
 		fmt.Printf("\r%f", percent)
 		surface.ClearRGB(0, 0, 0)
 		surface.SetSourceRGB(1, 1, 1)

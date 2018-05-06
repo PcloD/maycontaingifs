@@ -15,7 +15,6 @@ import (
 func May07() {
 	width := 400.0
 	height := 400.0
-	filename := "out/may07.gif"
 	numPoints := 800
 	maxDist := 43.0
 	var pointsA []*geom.Point
@@ -30,10 +29,8 @@ func May07() {
 		pointsB = append(pointsB, geom.NewPoint(width/2+math.Cos(angle)*radius, y))
 	}
 
-	animation := anim.NewAnimation(filename)
-	animation.SetSize(width, height)
-	animation.Frames = 180
-	animation.Render(func(surface *blg.Surface, percent float64) {
+	animation := anim.NewAnimation(width, height, 180)
+	animation.Render("frames", "frame", func(surface *blg.Surface, percent float64) {
 		fmt.Printf("\r%f", percent)
 		var lpoints []*geom.Point
 		for i := 0; i < len(pointsA); i++ {

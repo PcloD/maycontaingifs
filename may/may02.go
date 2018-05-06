@@ -15,17 +15,14 @@ import (
 func May02() {
 	width := 400.0
 	height := 400.0
-	filename := "out/may02.gif"
 	numPoints := 500
 	var points []*geom.Point
 	for i := 0; i < numPoints; i++ {
 		points = append(points, geom.NewPoint(random.FloatRange(0, width), random.FloatRange(0, height)))
 	}
 
-	animation := anim.NewAnimation(filename)
-	animation.SetSize(width, height)
-	animation.Frames = 120
-	animation.Render(func(surface *blg.Surface, percent float64) {
+	animation := anim.NewAnimation(width, height, 120)
+	animation.Render("frames", "frame", func(surface *blg.Surface, percent float64) {
 		fmt.Printf("\r%f", percent)
 		surface.ClearRGB(1, 1, 1)
 		maxDist := blmath.SinRange(percent*math.Pi*2, 10, 125)

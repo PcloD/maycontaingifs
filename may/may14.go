@@ -13,16 +13,13 @@ import (
 func May14() {
 	width := 400.0
 	height := 400.0
-	filename := "out/may14.gif"
 	numRows := 10.0
 	numCols := 10.0
 	rowHeight := height / numRows
 	colWidth := width / numCols
 
-	animation := anim.NewAnimation(filename)
-	animation.SetSize(width, height)
-	animation.Frames = 180
-	animation.Render(func(surface *blg.Surface, percent float64) {
+	animation := anim.NewAnimation(width, height, 180)
+	animation.Render("frames", "frame", func(surface *blg.Surface, percent float64) {
 		fmt.Printf("\r%f", percent)
 		// rowEven := true
 		for r := 0.0; r < numRows; r++ {

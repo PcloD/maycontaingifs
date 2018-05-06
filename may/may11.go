@@ -13,7 +13,6 @@ import (
 func May11() {
 	width := 400.0
 	height := 400.0
-	filename := "out/may11.gif"
 
 	type Point3D struct {
 		x float64
@@ -60,11 +59,9 @@ func May11() {
 		surface.FillCircle(x1, y1, r1)
 		surface.Line(x0, y0, x1, y1)
 	}
-	animation := anim.NewAnimation(filename)
-	animation.SetSize(width, height)
-	animation.Frames = 180
+	animation := anim.NewAnimation(width, height, 180)
 	firstFrame := true
-	animation.Render(func(surface *blg.Surface, percent float64) {
+	animation.Render("frames", "frame", func(surface *blg.Surface, percent float64) {
 		fmt.Printf("\r%f", percent)
 		n := blmath.SinRange(percent*math.Pi*2.0, 0.03, 1.0)
 		if firstFrame {

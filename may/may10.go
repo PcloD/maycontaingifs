@@ -12,7 +12,6 @@ import (
 func May10() {
 	width := 400.0
 	height := 400.0
-	filename := "out/may10.gif"
 
 	type Point3D struct {
 		x float64
@@ -41,10 +40,8 @@ func May10() {
 
 	fl := 300.0
 
-	animation := anim.NewAnimation(filename)
-	animation.SetSize(width, height)
-	animation.Frames = 180
-	animation.Render(func(surface *blg.Surface, percent float64) {
+	animation := anim.NewAnimation(width, height, 180)
+	animation.Render("frames", "frame", func(surface *blg.Surface, percent float64) {
 		fmt.Printf("\r%f", percent)
 		surface.ClearRGB(1, 1, 1)
 		surface.Save()

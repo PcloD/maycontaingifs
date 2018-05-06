@@ -16,12 +16,9 @@ func May08() {
 	height := 400.0
 	yres := 5.0
 	xres := 5.0
-	filename := "out/may08.gif"
 
-	animation := anim.NewAnimation(filename)
-	animation.SetSize(width, height)
-	animation.Frames = 180
-	animation.Render(func(surface *blg.Surface, percent float64) {
+	animation := anim.NewAnimation(width, height, 180)
+	animation.Render("frames", "frame", func(surface *blg.Surface, percent float64) {
 		fmt.Printf("\r%f", percent)
 		surface.ClearRGB(1, 1, 1)
 		surface.SetLineWidth(0.5)
