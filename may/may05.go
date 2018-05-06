@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/bit101/bitlibgo"
-	"github.com/bit101/bitlibgo/anim"
-	"github.com/bit101/bitlibgo/bitmath"
-	"github.com/bit101/bitlibgo/geom"
-	"github.com/bit101/bitlibgo/random"
+	"github.com/bit101/blg"
+	"github.com/bit101/blg/anim"
+	"github.com/bit101/blg/blmath"
+	"github.com/bit101/blg/geom"
+	"github.com/bit101/blg/random"
 )
 
 // May05 generates a gif
@@ -29,17 +29,17 @@ func May05() {
 	animation := anim.NewAnimation(filename)
 	animation.SetSize(width, height)
 	animation.Frames = 180
-	animation.Render(func(surface *bitlibgo.BitSurface, percent float64) {
+	animation.Render(func(surface *blg.Surface, percent float64) {
 		fmt.Printf("\r%f", percent)
 		var lpoints []*geom.Point
 		for _, p := range points {
-			lp := geom.LerpPoint(bitmath.SinRange(percent*math.Pi*2, 0, 1), center, p)
+			lp := geom.LerpPoint(blmath.SinRange(percent*math.Pi*2, 0, 1), center, p)
 			lpoints = append(lpoints, &lp)
 		}
 		surface.ClearRGB(1, 1, 1)
 		surface.Save()
 		surface.Translate(width/2, height/2)
-		surface.Rotate(bitmath.LerpSin(percent, 0, 1))
+		surface.Rotate(blmath.LerpSin(percent, 0, 1))
 		for i, p0 := range lpoints {
 			for _, p1 := range lpoints[i:] {
 				dist := p0.Distance(p1)

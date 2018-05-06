@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/bit101/bitlibgo"
-	"github.com/bit101/bitlibgo/anim"
-	"github.com/bit101/bitlibgo/bitmath"
-	"github.com/bit101/bitlibgo/random"
+	"github.com/bit101/blg"
+	"github.com/bit101/blg/anim"
+	"github.com/bit101/blg/blmath"
+	"github.com/bit101/blg/random"
 )
 
 // May08 generates a gif
@@ -21,7 +21,7 @@ func May08() {
 	animation := anim.NewAnimation(filename)
 	animation.SetSize(width, height)
 	animation.Frames = 180
-	animation.Render(func(surface *bitlibgo.BitSurface, percent float64) {
+	animation.Render(func(surface *blg.Surface, percent float64) {
 		fmt.Printf("\r%f", percent)
 		surface.ClearRGB(1, 1, 1)
 		surface.SetLineWidth(0.5)
@@ -31,8 +31,8 @@ func May08() {
 				dx := x - width/2
 				dy := y - height/2
 				dist := math.Hypot(dx, dy)
-				mult := bitmath.SinRange(percent*math.Pi*2, -0.15, 0.15)
-				h := bitmath.Clamp(-50, 50, math.Sin(dist*mult)*1000/dist)
+				mult := blmath.SinRange(percent*math.Pi*2, -0.15, 0.15)
+				h := blmath.Clamp(-50, 50, math.Sin(dist*mult)*1000/dist)
 				surface.LineTo(x, y+h+random.FloatRange(-2, 2))
 			}
 		}

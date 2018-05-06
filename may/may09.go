@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/bit101/bitlibgo"
-	"github.com/bit101/bitlibgo/anim"
-	"github.com/bit101/bitlibgo/random"
+	"github.com/bit101/blg"
+	"github.com/bit101/blg/anim"
+	"github.com/bit101/blg/random"
 )
 
 // May09 generates a gif
@@ -38,7 +38,7 @@ func May09() {
 	animation := anim.NewAnimation(filename)
 	animation.SetSize(width, height)
 	animation.Frames = 180
-	animation.Render(func(surface *bitlibgo.BitSurface, percent float64) {
+	animation.Render(func(surface *blg.Surface, percent float64) {
 		fmt.Printf("\r%f", percent)
 		surface.ClearRGB(1, 1, 1)
 		surface.Save()

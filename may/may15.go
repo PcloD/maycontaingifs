@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/bit101/bitlibgo"
-	"github.com/bit101/bitlibgo/anim"
+	"github.com/bit101/blg"
+	"github.com/bit101/blg/anim"
 )
 
 // May15 generates a gif
@@ -14,8 +14,8 @@ func May15() {
 	height := 400.0
 	filename := "out/may15.gif"
 
-	var circ func(*bitlibgo.BitSurface, float64, float64, float64, float64, int)
-	circ = func(surface *bitlibgo.BitSurface, rotation, x, y, r float64, d int) {
+	var circ func(*blg.Surface, float64, float64, float64, float64, int)
+	circ = func(surface *blg.Surface, rotation, x, y, r float64, d int) {
 		surface.Save()
 		surface.Translate(x, y)
 		surface.Rotate(rotation)
@@ -33,7 +33,7 @@ func May15() {
 	animation := anim.NewAnimation(filename)
 	animation.SetSize(width, height)
 	animation.Frames = 180
-	animation.Render(func(surface *bitlibgo.BitSurface, percent float64) {
+	animation.Render(func(surface *blg.Surface, percent float64) {
 		fmt.Printf("\r%f", percent)
 		surface.ClearRGB(1, 1, 1)
 		surface.Save()

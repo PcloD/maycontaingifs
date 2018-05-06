@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/bit101/bitlibgo"
-	"github.com/bit101/bitlibgo/anim"
-	"github.com/bit101/bitlibgo/bitmath"
+	"github.com/bit101/blg"
+	"github.com/bit101/blg/anim"
+	"github.com/bit101/blg/blmath"
 )
 
 // May14 generates a gif
@@ -22,7 +22,7 @@ func May14() {
 	animation := anim.NewAnimation(filename)
 	animation.SetSize(width, height)
 	animation.Frames = 180
-	animation.Render(func(surface *bitlibgo.BitSurface, percent float64) {
+	animation.Render(func(surface *blg.Surface, percent float64) {
 		fmt.Printf("\r%f", percent)
 		// rowEven := true
 		for r := 0.0; r < numRows; r++ {
@@ -33,7 +33,7 @@ func May14() {
 			surface.Stroke()
 			for c := -1.0; c < numCols+1.0; c++ {
 				surface.Save()
-				surface.Translate(math.Sin(r/numRows*math.Pi*4)*30*bitmath.SinRange(percent*math.Pi*2, -1, 1), rowHeight*r)
+				surface.Translate(math.Sin(r/numRows*math.Pi*4)*30*blmath.SinRange(percent*math.Pi*2, -1, 1), rowHeight*r)
 				if even {
 					surface.SetSourceRGB(1, 1, 1)
 				} else {

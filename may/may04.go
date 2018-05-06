@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/bit101/bitlibgo"
-	"github.com/bit101/bitlibgo/anim"
-	"github.com/bit101/bitlibgo/bitmath"
-	"github.com/bit101/bitlibgo/geom"
-	"github.com/bit101/bitlibgo/random"
+	"github.com/bit101/blg"
+	"github.com/bit101/blg/anim"
+	"github.com/bit101/blg/blmath"
+	"github.com/bit101/blg/geom"
+	"github.com/bit101/blg/random"
 )
 
 // May04 generates a gif
@@ -26,12 +26,12 @@ func May04() {
 	animation := anim.NewAnimation(filename)
 	animation.SetSize(width, height)
 	animation.Frames = 120
-	animation.Render(func(surface *bitlibgo.BitSurface, percent float64) {
+	animation.Render(func(surface *blg.Surface, percent float64) {
 		fmt.Printf("\r%f", percent)
 		surface.ClearRGB(1, 1, 1)
 		for i, p0 := range points {
 			dActual := p0.Distance(center)
-			dIdeal := bitmath.SinRange(percent*math.Pi*2, 0, width)
+			dIdeal := blmath.SinRange(percent*math.Pi*2, 0, width)
 			dx := math.Abs(dActual - dIdeal)
 			maxDist := (1.0 - dx/width) * 100.0
 			for _, p1 := range points[i:] {
