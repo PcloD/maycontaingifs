@@ -26,7 +26,6 @@ func May17() {
 			h := 120 - w
 			surface.Save()
 			surface.Translate(x, height/2+blmath.SinRange(x*0.04, -50, 50))
-			// surface.Rotate(blmath.LerpSin(percent, -2, 2))
 			surface.Rotate(percent * math.Pi * 2)
 			surface.Ellipse(0, 0, w, h)
 			surface.SetSourceRGB(1, 1, 1)
