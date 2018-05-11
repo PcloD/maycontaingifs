@@ -1,4 +1,4 @@
-date := 22
+date := 21
 
 gif := out/may$(date).gif
 gofile := may/may$(date).go

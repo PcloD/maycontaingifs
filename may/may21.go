@@ -24,8 +24,8 @@ func May21() {
 
 		for x := 0.0; x < width; x += res {
 			for y := 0.0; y < width; y += res {
-				yy := y + blmath.LerpSin(percent+0.25, 0, 100)
-				v := blmath.Map(noise.Perlin(x*scale, yy*scale, blmath.LerpSin(percent, 0, 2)), -1, 1, 0, 1)
+				yy := y + blmath.LerpSin(percent+0.25, 0, 200)
+				v := blmath.Map(noise.Perlin(x*scale, yy*scale, blmath.LerpSin(percent, 0, 200)*scale), -1, 1, 0, 1)
 				surface.SetSourceRGB(v, v, v)
 				surface.FillRectangle(x, y, res, res)
 			}
