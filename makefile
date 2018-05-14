@@ -6,7 +6,7 @@ gofile := may/may$(date).go
 # imagemagick calculates delay as 100ths of seconds.
 # thus, 100/30 is 30fps.
 # 100/30 = 3.3333...
-delay := 100.0 / 30.0
+delay := 3.3333
 
 
 default:
