@@ -16,7 +16,7 @@ clean:
 	@rm -rf frames
 
 display: $(gif)
-	@img_view $<
+	# @img_view $<
 
 launch:
 	@img_view $(gif)
@@ -35,6 +35,6 @@ $(gif): gifs.go $(gofile)
 
 	@# turn the frames into an animation
 	@echo "\nMaking the animation..."
-	@convert -delay $(delay) frames/*.png $@
+	# @convert -delay $(delay) frames/*.png $@
 	@echo "Complete: $@"
 
