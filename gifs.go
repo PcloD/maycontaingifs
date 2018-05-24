@@ -37,6 +37,9 @@ func main() {
 		may.May24,
 		may.May25,
 		may.May26,
+		may.May27,
+		may.May28,
+		may.May29,
 	)
 	arg, err := strconv.ParseInt(os.Args[1], 10, 32)
 	if err != nil {
