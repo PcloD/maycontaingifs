@@ -1,4 +1,4 @@
-date := 29
+date := 27
 
 gif := out/may$(date).gif
 gofile := may/may$(date).go
@@ -16,7 +16,7 @@ clean:
 	@rm -rf frames
 
 display: $(gif)
-	@img_view $<
+	# @img_view $<
 
 launch:
 	@img_view $(gif)
