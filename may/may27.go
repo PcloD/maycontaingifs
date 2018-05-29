@@ -17,7 +17,7 @@ func May27() {
 	animation.Render("frames", "frame", func(surface *blg.Surface, percent float64) {
 		surface.ClearRGB(1, 1, 1)
 		surface.SetLineWidth(0.25)
-		res := 2.0
+		res := 4.0
 		scale := 0.012
 		z := blmath.LerpSin(percent, -1, 1)
 
