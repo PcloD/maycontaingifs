@@ -16,7 +16,7 @@ clean:
 	@rm -rf frames
 
 display: $(gif)
-	@img_view $<
+	# @img_view $<
 
 launch:
 	@img_view $(gif)
