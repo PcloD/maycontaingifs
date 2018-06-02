@@ -10,3 +10,7 @@ Then check the makefile. It determines which gif will be built. Each day's code 
 `tmux_send` is a tmux script that allows me to run the makefile's `build` target in a separate tmux pane from Vim.
 
 https://github.com/bit101/dotfiles/blob/master/tmux/tmux_send
+
+`img_view` is another script that will open an image in different programs depending on which OS is being run.
+
+https://github.com/bit101/dotfiles/blob/master/misc/img_view
