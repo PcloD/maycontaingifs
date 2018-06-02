@@ -3,9 +3,9 @@ package may
 import (
 	"math"
 
-	"github.com/bit101/blg"
-	"github.com/bit101/blg/anim"
-	"github.com/bit101/blg/blmath"
+	"github.com/bit101/blgo"
+	"github.com/bit101/blgo/anim"
+	"github.com/bit101/blgo/blmath"
 )
 
 // May28 generates a gif
@@ -29,7 +29,7 @@ func May28() {
 		0.0, 1.2, 3.0, 0.7, -0.6, 0.99,
 	}
 
-	plot := func(surface *blg.Surface, x, y, z float64) {
+	plot := func(surface *blgo.Surface, x, y, z float64) {
 		scale := fl / (fl + z)
 		surface.FillRectangle(x*scale*size, y*scale*size, scale*1, scale*1)
 	}
@@ -42,7 +42,7 @@ func May28() {
 	}
 
 	animation := anim.NewAnimation(width, height, 180)
-	animation.Render("frames", "frame", func(surface *blg.Surface, percent float64) {
+	animation.Render("frames", "frame", func(surface *blgo.Surface, percent float64) {
 		surface.Save()
 		surface.Translate(width*0.27, height*0.2)
 		surface.ClearRGB(0, 0, 0)

@@ -3,12 +3,12 @@ package may
 import (
 	"fmt"
 
-	"github.com/bit101/blg"
-	"github.com/bit101/blg/anim"
-	"github.com/bit101/blg/blmath"
-	"github.com/bit101/blg/geom"
-	"github.com/bit101/blg/noise"
-	"github.com/bit101/blg/random"
+	"github.com/bit101/blgo"
+	"github.com/bit101/blgo/anim"
+	"github.com/bit101/blgo/blmath"
+	"github.com/bit101/blgo/geom"
+	"github.com/bit101/blgo/noise"
+	"github.com/bit101/blgo/random"
 )
 
 // May23 generates a gif
@@ -31,7 +31,7 @@ func May23() {
 	scale := 0.007
 
 	animation := anim.NewAnimation(width, height, 180)
-	animation.Render("frames", "frame", func(surface *blg.Surface, percent float64) {
+	animation.Render("frames", "frame", func(surface *blgo.Surface, percent float64) {
 		fmt.Printf("\r%f", percent)
 		surface.ClearRGB(1, 1, 1)
 		r := 10.0

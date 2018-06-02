@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/bit101/blg"
-	"github.com/bit101/blg/anim"
+	"github.com/bit101/blgo"
+	"github.com/bit101/blgo/anim"
 )
 
 // May18 generates a gif
@@ -13,8 +13,8 @@ func May18() {
 	width := 400.0
 	height := 400.0
 
-	var circ func(*blg.Surface, float64, float64, float64, float64, int, float64)
-	circ = func(surface *blg.Surface, rotation, x, y, r float64, d int, w float64) {
+	var circ func(*blgo.Surface, float64, float64, float64, float64, int, float64)
+	circ = func(surface *blgo.Surface, rotation, x, y, r float64, d int, w float64) {
 		surface.Save()
 		surface.Translate(x, y)
 		surface.Rotate(rotation)
@@ -31,7 +31,7 @@ func May18() {
 	}
 
 	animation := anim.NewAnimation(width, height, 180)
-	animation.Render("frames", "frame", func(surface *blg.Surface, percent float64) {
+	animation.Render("frames", "frame", func(surface *blgo.Surface, percent float64) {
 		fmt.Printf("\r%f", percent)
 		surface.ClearRGB(0, 0, 0)
 		surface.Save()

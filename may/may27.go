@@ -1,11 +1,11 @@
 package may
 
 import (
-	"github.com/bit101/blg"
-	"github.com/bit101/blg/anim"
-	"github.com/bit101/blg/blmath"
-	"github.com/bit101/blg/geom"
-	"github.com/bit101/blg/noise"
+	"github.com/bit101/blgo"
+	"github.com/bit101/blgo/anim"
+	"github.com/bit101/blgo/blmath"
+	"github.com/bit101/blgo/geom"
+	"github.com/bit101/blgo/noise"
 )
 
 // May27 generates a gif
@@ -14,7 +14,7 @@ func May27() {
 	height := 400.0
 
 	animation := anim.NewAnimation(width, height, 180)
-	animation.Render("frames", "frame", func(surface *blg.Surface, percent float64) {
+	animation.Render("frames", "frame", func(surface *blgo.Surface, percent float64) {
 		surface.ClearRGB(1, 1, 1)
 		surface.SetLineWidth(0.25)
 		res := 4.0

@@ -1,9 +1,9 @@
 package may
 
 import (
-	"github.com/bit101/blg"
-	"github.com/bit101/blg/anim"
-	"github.com/bit101/blg/blmath"
+	"github.com/bit101/blgo"
+	"github.com/bit101/blgo/anim"
+	"github.com/bit101/blgo/blmath"
 	"github.com/bit101/gometro/metro"
 )
 
@@ -15,7 +15,7 @@ func May31() {
 	box.Position(200, 340, 0)
 
 	animation := anim.NewAnimation(width, height, 180)
-	animation.Render("frames", "frame", func(surface *blg.Surface, percent float64) {
+	animation.Render("frames", "frame", func(surface *blgo.Surface, percent float64) {
 		surface.ClearRGB(0, 0, 0)
 		w := blmath.LerpSin(percent, 20, 200)
 		d := 220 - w

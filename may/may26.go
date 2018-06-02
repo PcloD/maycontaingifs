@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/bit101/blg"
-	"github.com/bit101/blg/anim"
-	"github.com/bit101/blg/blmath"
+	"github.com/bit101/blgo"
+	"github.com/bit101/blgo/anim"
+	"github.com/bit101/blgo/blmath"
 )
 
 // May26 generates a gif
@@ -22,7 +22,7 @@ func May26() {
 		return total * 0.5
 	}
 
-	fourier := func(surface *blg.Surface, num, percent float64) {
+	fourier := func(surface *blgo.Surface, num, percent float64) {
 		for i := 0.0; i < surface.Width; i++ {
 			x := i / surface.Width * math.Pi * 5.0
 			y := f(x, num, percent) * -150.0
@@ -33,7 +33,7 @@ func May26() {
 	}
 
 	animation := anim.NewAnimation(width, height, 180)
-	animation.Render("frames", "frame", func(surface *blg.Surface, percent float64) {
+	animation.Render("frames", "frame", func(surface *blgo.Surface, percent float64) {
 		fmt.Printf("\r%f", percent)
 		surface.ClearRGB(1, 1, 1)
 		// surface.SetSourceColor(color.HSV(percent*360.0, 1, 1))

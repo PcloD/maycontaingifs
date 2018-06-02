@@ -4,8 +4,8 @@ import (
 	"math"
 	"sort"
 
-	"github.com/bit101/blg"
-	"github.com/bit101/blg/anim"
+	"github.com/bit101/blgo"
+	"github.com/bit101/blgo/anim"
 )
 
 // May30 generates a gif
@@ -29,7 +29,7 @@ func May30() {
 		2.3, -1.2, 2.0, 0.7, -0.6, 0.99,
 	}
 
-	plot := func(surface *blg.Surface, p P3D) {
+	plot := func(surface *blgo.Surface, p P3D) {
 		scale := fl / (fl + p.z*size + size*2)
 		// surface.FillRectangle(p.x*scale*size, p.y*scale*size, scale*1, scale*1)
 		surface.SetLineWidth(0.2)
@@ -64,7 +64,7 @@ func May30() {
 	}
 
 	animation := anim.NewAnimation(width, height, 180)
-	animation.Render("frames", "frame", func(surface *blg.Surface, percent float64) {
+	animation.Render("frames", "frame", func(surface *blgo.Surface, percent float64) {
 		surface.Save()
 		surface.Translate(width*0.5, height*0.2)
 		surface.ClearRGB(0, 0, 0)
